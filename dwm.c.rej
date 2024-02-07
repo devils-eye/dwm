@@ -1,0 +1,30 @@
+--- dwm.c
++++ dwm.c
+@@ -56,7 +56,6 @@
+ #define HEIGHT(X)               ((X)->h + 2 * (X)->bw)
+ #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
+ #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
+-#define OPAQUE                  0xffU
+ 
+ /* enums */
+ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
+@@ -233,7 +232,6 @@ static Monitor *wintomon(Window w);
+ static int xerror(Display *dpy, XErrorEvent *ee);
+ static int xerrordummy(Display *dpy, XErrorEvent *ee);
+ static int xerrorstart(Display *dpy, XErrorEvent *ee);
+-static void xinitvisual();
+ static void zoom(const Arg *arg);
+ 
+ /* variables */
+@@ -270,11 +268,6 @@ static Drw *drw;
+ static Monitor *mons, *selmon;
+ static Window root, wmcheckwin;
+ 
+-static int useargb = 0;
+-static Visual *visual;
+-static int depth;
+-static Colormap cmap;
+-
+ /* configuration, allows nested code to access above variables */
+ #include "config.h"
+ 
